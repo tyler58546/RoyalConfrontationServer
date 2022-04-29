@@ -1,0 +1,13 @@
+{
+  "name": "royalconfrontationserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "tyler58546",
+  "dependencies": {
+    "ws": "^8.5.0"
+  }
+}
