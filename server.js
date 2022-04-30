@@ -48,6 +48,20 @@ wss.on('connection', function connection(ws) {
 
     });
 
+    ws.on('close', function close() {
+        for (const game of games) {
+            for (const player of game.players) {
+                if (game.players < 2) {
+                    game.players = [];
+                }
+            }
+            for (const player of game.players) {
+                if (player.readyState < 2) return;
+            }
+            games.splice(games.indexOf(game));
+        }
+    });
+
     while(true) {
         for (const game of games) {
             if (game.players.length < 2) {
