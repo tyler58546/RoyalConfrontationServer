@@ -1,6 +1,11 @@
 const ws  = require('ws');
 
-const wss = new ws.WebSocketServer({ port: 8085 });
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 8085;
+}
+
+const wss = new ws.WebSocketServer({ port });
 
 class Game {
     constructor() {
