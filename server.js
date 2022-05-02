@@ -27,7 +27,7 @@ class Game {
         data = JSON.parse(data);
         console.log('received: %s', data);
         this.players.forEach((player) => {
-            player.send(JSON.stringify({type: 'spawn', t: this.getCurrentTick()+10, x: data.x, y: data.y, team: ws === player ? 1 : 0}));
+            player.send(JSON.stringify({type: 'spawn', entity:data.type, t: this.getCurrentTick()+10, x: data.x, y: data.y, team: ws === player ? 1 : 0}));
             player.send(JSON.stringify(this.getState()));
         });
     }
